@@ -79,6 +79,5 @@ Hints
    retrieved via text.getlocalBounds(), which you will need to use to 
    center the text properly within a shape. 
    
-   
  - Please use C++ file reading (std::ifstream makes this easy) rather 
    than C-style FILE reading. You will lose marks for using older c functions!
