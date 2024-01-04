@@ -33,11 +33,21 @@ std::vector<struct Rectangle> rectangles;
 
 void drawObjects(sf::RenderWindow &window)
 {
-  for (auto c : circles)
+  for (auto &c : circles)
   {
     sf::CircleShape circle(c.radius);
     circle.setFillColor(sf::Color(c.r, c.g, c.b));
     circle.setPosition(sf::Vector2f(c.x, c.y));
+
+    if (circle.getGlobalBounds().left <= 0 || circle.getGlobalBounds().left + circle.getGlobalBounds().width >= window_height)
+    {
+      c.sx *= -1;
+    }
+
+    if (circle.getGlobalBounds().top <= 0 || circle.getGlobalBounds().top + circle.getGlobalBounds().height >= window_width)
+    {
+      c.sy *= -1;
+    }
 
     sf::Text title;
     title.setFont(font);
@@ -56,11 +66,21 @@ void drawObjects(sf::RenderWindow &window)
     window.draw(circle);
     window.draw(title);
   }
-  for (auto r : rectangles)
+  for (auto &r : rectangles)
   {
     sf::RectangleShape rectangle(sf::Vector2f(r.w, r.h));
     rectangle.setFillColor(sf::Color(r.r, r.g, r.b));
     rectangle.setPosition(sf::Vector2f(r.x, r.y));
+
+    if (rectangle.getGlobalBounds().left <= 0 || rectangle.getGlobalBounds().left + rectangle.getGlobalBounds().width >= window_height)
+    {
+      r.sx *= -1;
+    }
+
+    if (rectangle.getGlobalBounds().top <= 0 || rectangle.getGlobalBounds().top + rectangle.getGlobalBounds().height >= window_width)
+    {
+      r.sy *= -1;
+    }
 
     sf::Text title;
     title.setFont(font);
@@ -157,9 +177,9 @@ int main(int argc, char *argv[])
     std::cerr << "Error while reading the config.txt file";
     return 1;
   }
-
+  std::cout << window_height << window_width << std::endl;
   window.create(sf::VideoMode(window_height, window_width), "Assignment 1");
-  window.setFramerateLimit(360); // while we dont have timeDelta
+  window.setFramerateLimit(60); // while we dont have timeDelta
 
   while (window.isOpen())
   {
