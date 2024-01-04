@@ -45,7 +45,13 @@ void drawObjects(sf::RenderWindow &window)
     title.setCharacterSize(font_sz);
     title.setFillColor(sf::Color(font_r, font_g, font_b));
 
-    title.setPosition(circle.getPosition());
+    float x, y;
+    x = circle.getGlobalBounds().left;
+    x += (circle.getLocalBounds().width - title.getLocalBounds().width) / 2;
+    y = circle.getGlobalBounds().top;
+    y += (circle.getLocalBounds().height - title.getLocalBounds().height) / 2;
+
+    title.setPosition(sf::Vector2f(x, y));
 
     window.draw(circle);
     window.draw(title);
@@ -62,7 +68,13 @@ void drawObjects(sf::RenderWindow &window)
     title.setCharacterSize(font_sz);
     title.setFillColor(sf::Color(font_r, font_g, font_b));
 
-    title.setPosition(rectangle.getPosition());
+    float x, y;
+    x = rectangle.getGlobalBounds().left;
+    x += (rectangle.getLocalBounds().width - title.getLocalBounds().width) / 2;
+    y = rectangle.getGlobalBounds().top;
+    y += (rectangle.getLocalBounds().height - title.getLocalBounds().height) / 2;
+
+    title.setPosition(sf::Vector2f(x, y));
 
     window.draw(rectangle);
     window.draw(title);
