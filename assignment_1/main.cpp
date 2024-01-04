@@ -39,12 +39,12 @@ void drawObjects(sf::RenderWindow &window)
     circle.setFillColor(sf::Color(c.r, c.g, c.b));
     circle.setPosition(sf::Vector2f(c.x, c.y));
 
-    if (circle.getGlobalBounds().left <= 0 || circle.getGlobalBounds().left + circle.getGlobalBounds().width >= window_height)
+    if (circle.getGlobalBounds().left <= 0 || circle.getGlobalBounds().left + circle.getGlobalBounds().width >= window_width)
     {
       c.sx *= -1;
     }
 
-    if (circle.getGlobalBounds().top <= 0 || circle.getGlobalBounds().top + circle.getGlobalBounds().height >= window_width)
+    if (circle.getGlobalBounds().top <= 0 || circle.getGlobalBounds().top + circle.getGlobalBounds().height >= window_height)
     {
       c.sy *= -1;
     }
@@ -72,12 +72,12 @@ void drawObjects(sf::RenderWindow &window)
     rectangle.setFillColor(sf::Color(r.r, r.g, r.b));
     rectangle.setPosition(sf::Vector2f(r.x, r.y));
 
-    if (rectangle.getGlobalBounds().left <= 0 || rectangle.getGlobalBounds().left + rectangle.getGlobalBounds().width >= window_height)
+    if (rectangle.getGlobalBounds().left <= 0 || rectangle.getGlobalBounds().left + rectangle.getGlobalBounds().width >= window_width)
     {
       r.sx *= -1;
     }
 
-    if (rectangle.getGlobalBounds().top <= 0 || rectangle.getGlobalBounds().top + rectangle.getGlobalBounds().height >= window_width)
+    if (rectangle.getGlobalBounds().top <= 0 || rectangle.getGlobalBounds().top + rectangle.getGlobalBounds().height >= window_height)
     {
       r.sy *= -1;
     }
@@ -129,7 +129,7 @@ bool readConfiguration()
   {
     if (tmp == "Window")
     {
-      config >> window_height >> window_width;
+      config >> window_width >> window_height;
       window_loaded = true;
     }
     else if (tmp == "Font")
@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
     return 1;
   }
   std::cout << window_height << window_width << std::endl;
-  window.create(sf::VideoMode(window_height, window_width), "Assignment 1");
+  window.create(sf::VideoMode(window_width, window_height), "Assignment 1");
   window.setFramerateLimit(60); // while we dont have timeDelta
 
   while (window.isOpen())
