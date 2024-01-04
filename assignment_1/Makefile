@@ -2,6 +2,9 @@ static: compile-static link-static
 
 all: compile link
 
+run: all
+	.\main.exe
+
 compile:
 	g++ -c main.cpp -I"C:\libraries\SFML-2.6.1\include"
 
