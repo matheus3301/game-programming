@@ -57,8 +57,9 @@ void drawObjects(sf::RenderWindow &window)
 
     float x, y;
     x = circle.getGlobalBounds().left;
-    x += (circle.getLocalBounds().width - title.getLocalBounds().width) / 2;
     y = circle.getGlobalBounds().top;
+
+    x += (circle.getLocalBounds().width - title.getLocalBounds().width) / 2;
     y += (circle.getLocalBounds().height - title.getLocalBounds().height) / 2;
 
     title.setPosition(sf::Vector2f(x, y));
@@ -90,9 +91,10 @@ void drawObjects(sf::RenderWindow &window)
 
     float x, y;
     x = rectangle.getGlobalBounds().left;
-    x += (rectangle.getLocalBounds().width - title.getLocalBounds().width) / 2;
     y = rectangle.getGlobalBounds().top;
-    y += (rectangle.getLocalBounds().height - title.getLocalBounds().height) / 2;
+
+    x += (rectangle.getGlobalBounds().width - title.getGlobalBounds().width) / 2;
+    y += (rectangle.getGlobalBounds().height - title.getGlobalBounds().height) / 2;
 
     title.setPosition(sf::Vector2f(x, y));
 
