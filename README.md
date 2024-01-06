@@ -95,6 +95,10 @@ Hints
 ![Assingment 1](.github/assignment1.gif)
 
 ## Assignment 2 - Geometry Wars
+Proposed Architecture
+---------------------------------------------------------------------------------
+![Alt text](.github/assignment2_architecture.png)
+
 Program Specification
 ---------------------------------------------------------------------------------
 
@@ -213,7 +217,6 @@ Bullet SR CR S FR FG FB OR OG OB OT V L
    Lifespan          L         int<br>
 
 
----------------------------------------------------------------------------------
 Hints
 ---------------------------------------------------------------------------------
 
@@ -245,3 +248,4 @@ mechanics working
 7. Implement collisions in sCollision and entity.destroy() if it's dead
 
 8. Implement the rest of the game's functionality, including config file reading
+
